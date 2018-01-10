@@ -1,0 +1,425 @@
+fileFormatVersion: 2
+guid: 41043e1598d002f4fa0f34aeffbef11a
+timeCreated: 1500400844
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: control_left_1
+    100002: control_left_1__Copy_
+    100004: Control_right_1
+    100006: Control_right_1__Copy_
+    100008: head_left
+    100010: head_left_2
+    100012: Head_right
+    100014: Head_right_2
+    100016: Joint
+    100018: Joint_1
+    100020: Joint_1_10
+    100022: Joint_1_11
+    100024: Joint_1_2
+    100026: Joint_1_3
+    100028: Joint_1_4
+    100030: Joint_1_5
+    100032: Joint_1_6
+    100034: Joint_1_7
+    100036: Joint_1_8
+    100038: Joint_1_9
+    100040: Joint_1__Copy_
+    100042: Joint_2
+    100044: Joint_2_10
+    100046: Joint_2_11
+    100048: Joint_2_2
+    100050: Joint_2_3
+    100052: Joint_2_4
+    100054: Joint_2_5
+    100056: Joint_2_6
+    100058: Joint_2_7
+    100060: Joint_2_8
+    100062: Joint_2_9
+    100064: Joint_3
+    100066: Joint_3_2
+    100068: Joint_3_3
+    100070: Joint_3_4
+    100072: Joint_3_5
+    100074: Joint_4
+    100076: Joint_5
+    100078: Joint__Copy_
+    100080: //RootNode
+    100082: Skeleton
+    100084: Subdivision_Surface_1
+    400000: control_left_1
+    400002: control_left_1__Copy_
+    400004: Control_right_1
+    400006: Control_right_1__Copy_
+    400008: head_left
+    400010: head_left_2
+    400012: Head_right
+    400014: Head_right_2
+    400016: Joint
+    400018: Joint_1
+    400020: Joint_1_10
+    400022: Joint_1_11
+    400024: Joint_1_2
+    400026: Joint_1_3
+    400028: Joint_1_4
+    400030: Joint_1_5
+    400032: Joint_1_6
+    400034: Joint_1_7
+    400036: Joint_1_8
+    400038: Joint_1_9
+    400040: Joint_1__Copy_
+    400042: Joint_2
+    400044: Joint_2_10
+    400046: Joint_2_11
+    400048: Joint_2_2
+    400050: Joint_2_3
+    400052: Joint_2_4
+    400054: Joint_2_5
+    400056: Joint_2_6
+    400058: Joint_2_7
+    400060: Joint_2_8
+    400062: Joint_2_9
+    400064: Joint_3
+    400066: Joint_3_2
+    400068: Joint_3_3
+    400070: Joint_3_4
+    400072: Joint_3_5
+    400074: Joint_4
+    400076: Joint_5
+    400078: Joint__Copy_
+    400080: //RootNode
+    400082: Skeleton
+    400084: Subdivision_Surface_1
+    4300000: Subdivision_Surface_1
+    7400000: Excitement
+    7400002: Impatience
+    7400004: Frustration
+    9500000: //RootNode
+    13700000: Subdivision_Surface_1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Excitement
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Impatience
+      takeName: C4D Animation Take
+      firstFrame: 480
+      lastFrame: 614
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: control_left_1
+        weight: 1
+      - path: control_left_1__Copy_
+        weight: 1
+      - path: Control_right_1
+        weight: 1
+      - path: Control_right_1__Copy_
+        weight: 1
+      - path: Skeleton
+        weight: 1
+      - path: Skeleton/Joint_1
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint/Joint_1_2
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint/Joint_1_2/Joint_2_2
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint_1_3
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint_1_3/Joint_2_3
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint_1_3/Joint_2_3/Joint_3
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_1_5
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_1_5/Joint_2_7
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_1_5/Joint_2_7/Joint_3_2
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_2_5
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_2_5/Joint_1_4
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_2_5/Joint_1_4/Joint_2_6
+        weight: 1
+      - path: Skeleton/Joint_3_3
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_1_8
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_1_8/Joint_2_9
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_1_8/Joint_2_9/Joint_3_4
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_4
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_4/Joint_1_7
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_4/Joint_1_7/Joint_2_8
+        weight: 1
+      - path: Skeleton/Joint__Copy_
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_1_11
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_1_11/Joint_2_11
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_1_11/Joint_2_11/Joint_3_5
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_5
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_5/Joint_1_10
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_5/Joint_1_10/Joint_2_10
+        weight: 1
+      - path: Skeleton/Subdivision_Surface_1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Frustration
+      takeName: C4D Animation Take
+      firstFrame: 360
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: control_left_1
+        weight: 1
+      - path: control_left_1__Copy_
+        weight: 1
+      - path: Control_right_1
+        weight: 1
+      - path: Control_right_1__Copy_
+        weight: 1
+      - path: Skeleton
+        weight: 1
+      - path: Skeleton/Joint_1
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint/Joint_1_2
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint/Joint_1_2/Joint_2_2
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint_1_3
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint_1_3/Joint_2_3
+        weight: 1
+      - path: Skeleton/Joint_1/Joint_2/head_left/Joint_1_3/Joint_2_3/Joint_3
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_1_5
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_1_5/Joint_2_7
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_1_5/Joint_2_7/Joint_3_2
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_2_5
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_2_5/Joint_1_4
+        weight: 1
+      - path: Skeleton/Joint_1__Copy_/Joint_2_4/head_left_2/Joint_2_5/Joint_1_4/Joint_2_6
+        weight: 1
+      - path: Skeleton/Joint_3_3
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_1_8
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_1_8/Joint_2_9
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_1_8/Joint_2_9/Joint_3_4
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_4
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_4/Joint_1_7
+        weight: 1
+      - path: Skeleton/Joint_3_3/Joint_1_6/Head_right/Joint_4/Joint_1_7/Joint_2_8
+        weight: 1
+      - path: Skeleton/Joint__Copy_
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_1_11
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_1_11/Joint_2_11
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_1_11/Joint_2_11/Joint_3_5
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_5
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_5/Joint_1_10
+        weight: 1
+      - path: Skeleton/Joint__Copy_/Joint_1_9/Head_right_2/Joint_5/Joint_1_10/Joint_2_10
+        weight: 1
+      - path: Skeleton/Subdivision_Surface_1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

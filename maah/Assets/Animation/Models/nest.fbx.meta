@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 9a6834708f093184d8265fbd686bffe9
+timeCreated: 1479732713
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bottom
+    100002: Cap_1
+    100004: Cap_2
+    100006: CARPET
+    100008: carpet
+    100010: Cube
+    100012: Cylinder
+    100014: led
+    100016: //RootNode
+    100018: outer_structure
+    100020: plug
+    100022: Sphere
+    100024: Sphere_1
+    100026: Sphere_2
+    100028: Sphere_3
+    100030: structure
+    100032: Subdivision_Surface
+    100034: Sweep
+    400000: bottom
+    400002: Cap_1
+    400004: Cap_2
+    400006: CARPET
+    400008: carpet
+    400010: Cube
+    400012: Cylinder
+    400014: led
+    400016: //RootNode
+    400018: outer_structure
+    400020: plug
+    400022: Sphere
+    400024: Sphere_1
+    400026: Sphere_2
+    400028: Sphere_3
+    400030: structure
+    400032: Subdivision_Surface
+    400034: Sweep
+    2300000: bottom
+    2300002: Cap_1
+    2300004: Cap_2
+    2300006: CARPET
+    2300008: Cube
+    2300010: Cylinder
+    2300012: outer_structure
+    2300014: Sphere
+    2300016: Sphere_1
+    2300018: Sphere_2
+    2300020: Sphere_3
+    2300022: Sweep
+    3300000: bottom
+    3300002: Cap_1
+    3300004: Cap_2
+    3300006: CARPET
+    3300008: Cube
+    3300010: Cylinder
+    3300012: outer_structure
+    3300014: Sphere
+    3300016: Sphere_1
+    3300018: Sphere_2
+    3300020: Sphere_3
+    3300022: Sweep
+    4300000: Cylinder
+    4300002: Sphere_3
+    4300004: Cube
+    4300006: Sweep
+    4300008: Cap_1
+    4300010: Cap_2
+    4300012: Sphere_2
+    4300014: Sphere_1
+    4300016: Sphere
+    4300018: bottom
+    4300020: outer_structure
+    4300022: CARPET
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

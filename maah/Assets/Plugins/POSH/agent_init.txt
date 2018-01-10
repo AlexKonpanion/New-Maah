@@ -1,0 +1,8 @@
+###
+# agent init file
+###
+
+[robo]
+RobotMovementInner.name = Humf1
+RobotMovementInner.startloc = Waypoint
+RobotMovementInner.waypoints = WP-05 WP-04 WP-03 WP-02 WP-01

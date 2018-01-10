@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Autodesk_Cache_File>
+  <cacheType Type="OneFile" Format="mcc"/>
+  <time Range="0-24000"/>
+  <cacheTimePerFrame TimePerFrame="200"/>
+  <cacheVersion Version="2.0"/>
+  <Channels>
+    <channel0 ChannelName="Subdivision_Surface_1" ChannelType="FloatVectorArray" ChannelInterpretation="Points" SamplingType="Regular" SamplingRate="200" StartTime="0" EndTime="24000"/>
+  </Channels>
+</Autodesk_Cache_File>
