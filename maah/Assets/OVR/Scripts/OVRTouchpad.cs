@@ -39,6 +39,9 @@ public static class OVRTouchpad
 	   	Down,
 	};
 
+	/// <summary>
+	/// Details about a touch event.
+	/// </summary>
 	public class TouchArgs : EventArgs
 	{
 		public TouchEvent TouchType;
@@ -62,7 +65,7 @@ public static class OVRTouchpad
    	};
 
 	static TouchState touchState = TouchState.Init;
-	static Vector2 moveAmount;
+	//static Vector2 moveAmount;
 	static float minMovMagnitude = 100.0f; // Tune this to gage between click and swipe
 	
 	// mouse

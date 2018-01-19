@@ -25,10 +25,9 @@ using System.Collections;
 /// <summary>
 /// This is a simple behavior that can be attached to a parent of the CameraRig in order
 /// to provide movement via the gamepad. This is useful when testing an application in
-/// the Unity editor without the Head-Mounted Tracker.
+/// the Unity editor without the HMD.
 /// To use it, create a game object in your scene and drag your CameraRig to be a child
 /// of the game object. Then, add the OVRDebugHeadController behavior to the game object.
-/// You must also have an OVRGamepadController somewhere in your scene.
 /// Alternatively, this behavior can be placed directly on the OVRCameraRig object, but
 /// that is not guaranteed to work if OVRCameraRig functionality changes in the future.
 /// In the parent case, the object with OVRDebugHeadController can be thougt of as a 
@@ -82,27 +81,31 @@ public class OVRDebugHeadController : MonoBehaviour
 	{
 		if ( AllowMovement )
 		{
-			float gamePad_FwdAxis = OVRGamepadController.GPC_GetAxis( OVRGamepadController.Axis.LeftYAxis );
-			float gamePad_StrafeAxis = OVRGamepadController.GPC_GetAxis( OVRGamepadController.Axis.LeftXAxis );
+			float gamePad_FwdAxis = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick).y;
+			float gamePad_StrafeAxis = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick).x;
 			
 			Vector3 fwdMove = ( CameraRig.centerEyeAnchor.rotation * Vector3.forward ) * gamePad_FwdAxis * Time.deltaTime * ForwardSpeed;
 			Vector3 strafeMove = ( CameraRig.centerEyeAnchor.rotation * Vector3.right ) * gamePad_StrafeAxis * Time.deltaTime * StrafeSpeed;
 			transform.position += fwdMove + strafeMove;
 		}
 
-		if ( !OVRManager.display.isPresent && ( AllowYawLook || AllowPitchLook ) )
+#if UNITY_2017_2_OR_NEWER
+		if ( !UnityEngine.XR.XRDevice.isPresent && ( AllowYawLook || AllowPitchLook ) )
+#else
+		if ( !UnityEngine.VR.VRDevice.isPresent && ( AllowYawLook || AllowPitchLook ) )
+#endif
 		{
 			Quaternion r = transform.rotation;
 			if ( AllowYawLook )
 			{
-				float gamePadYaw = OVRGamepadController.GPC_GetAxis( OVRGamepadController.Axis.RightXAxis );
+				float gamePadYaw = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick).x;
 				float yawAmount = gamePadYaw * Time.deltaTime * GamePad_YawDegreesPerSec;
 				Quaternion yawRot = Quaternion.AngleAxis( yawAmount, Vector3.up );
 				r = yawRot * r;
 			}
 			if ( AllowPitchLook )
 			{
-				float gamePadPitch = OVRGamepadController.GPC_GetAxis( OVRGamepadController.Axis.RightYAxis );
+				float gamePadPitch = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick).y;
 				if ( Mathf.Abs( gamePadPitch ) > 0.0001f )
 				{
 					if ( InvertPitch )

@@ -20,17 +20,35 @@ limitations under the License.
 ************************************************************************************/
 
 using UnityEngine;
+using VR = UnityEngine.VR;
 using System.Collections;
+using System.Collections.Generic;
 
+/// <summary>
+/// Shows the Oculus plaform UI.
+/// </summary>
 public class OVRPlatformMenu : MonoBehaviour
 {
-	public GameObject cursorTimer;
-	public Color cursorTimerColor = new Color(0.0f, 0.643f, 1.0f, 1.0f);	// set default color to same as native cursor timer
-	public OVRCameraRig cameraRig = null;
-	public float fixedDepth = 3.0f;
+	/// <summary>
+	/// The key code.
+	/// </summary>
+	public KeyCode keyCode = KeyCode.Escape;
 
-	private GameObject instantiatedCursorTimer = null;
-	private Material cursorTimerMaterial = null;
+	public enum eHandler
+	{
+		ShowConfirmQuit,
+		RetreatOneLevel,
+	};
+
+	public eHandler shortPressHandler = eHandler.ShowConfirmQuit;
+
+	/// <summary>
+	/// Callback to handle short press. Returns true if ConfirmQuit menu should be shown.
+	/// </summary>
+	public System.Func<bool> OnShortPress;
+	private static Stack<string> sceneStack = new Stack<string>();
+
+	private float doubleTapDelay = 0.25f;
 	private float shortPressDelay = 0.25f;
 	private float longPressDelay = 0.75f;
 
@@ -38,106 +56,82 @@ public class OVRPlatformMenu : MonoBehaviour
 	{
 		NONE,
 		DOUBLE_TAP,
-		SHORT_PRESS,
-		LONG_PRESS
+		SHORT_PRESS
 	};
 
-	private int     downCount = 0;
-	private float 	initialDownTime = -1.0f;
-	private float   timerTime = -1.0f;
-	private bool 	waitForUp = false;
+	private int downCount = 0;
+	private int upCount = 0;
+	private float initialDownTime = -1.0f;
 
 	eBackButtonAction ResetAndSendAction( eBackButtonAction action )
 	{
 		print( "ResetAndSendAction( " + action + " );" );
 		downCount = 0;
+		upCount = 0;
 		initialDownTime = -1.0f;
-        timerTime = -1.0f;
-		waitForUp = false;
-		ResetCursor();
-		if ( action == eBackButtonAction.LONG_PRESS )
-		{
-			// since a long press triggers off of time and not an up,
-			// wait for an up to happen before handling any more key state.
-			waitForUp = true;
-		}
 		return action;
 	}
 
 	eBackButtonAction HandleBackButtonState() 
 	{
-		if ( waitForUp )
+		if ( Input.GetKeyDown( keyCode ) )
 		{
-			if ( !Input.GetKeyDown( KeyCode.Escape ) && !Input.GetKey( KeyCode.Escape ) )
-			{
-				waitForUp = false;
-			}
-			else
-			{
-				return eBackButtonAction.NONE;
-			}
-		}
-
-        float timeSinceInitialDown = -1.0f;
-        if ( downCount > 0 )
-        {
-            timeSinceInitialDown = Time.realtimeSinceStartup - initialDownTime;
-        }
-
-		if ( Input.GetKeyDown( KeyCode.Escape ) ) // only returns true on the frame that the key was pressed
-		{
-            // just came down
+			// just came down
 			downCount++;
 			if ( downCount == 1 )
 			{
-                // initial down
 				initialDownTime = Time.realtimeSinceStartup;
-                timerTime = -1.0f;
 			}
 		}
-        else if ( Input.GetKey( KeyCode.Escape ) )
-        {
-            // key is being held
-            if ( timeSinceInitialDown > shortPressDelay )
-            {
-				// The gaze cursor timer should start unfilled once short-press time is exceeded
-				// then fill up completely, so offset the times by the short-press delay.
-				timerTime = ( timeSinceInitialDown - shortPressDelay ) / ( longPressDelay - shortPressDelay );
-				UpdateCursor( timerTime );
-            }
-            if ( timeSinceInitialDown > longPressDelay )
-            {
-                // long-press time expired while holding, so issue a long-press
-                // print( "Long-press: timeSinceInitialDown = " + timeSinceInitialDown + ", downCount = " + downCount );
-                return ResetAndSendAction( eBackButtonAction.LONG_PRESS );
-            }
-        }
-        else if ( downCount > 0 )
-        {
-            // key is up
-            if ( timerTime >= 0.0f )
-            {
-                // any key up after the short-press delay has passed is an abort of a long-press
-                // print( "Abort: timeSinceInitialDown = " + timeSinceInitialDown + ", downCount = " + downCount );
-                return ResetAndSendAction( eBackButtonAction.NONE );
-            }
-            else if ( timeSinceInitialDown >= shortPressDelay )
-            {
-                timerTime = ( timeSinceInitialDown - shortPressDelay ) / ( longPressDelay - shortPressDelay );
-                if ( downCount == 1 )   
-                {
-                    // key only went down once, this is a short-press
-					// print( "Short-press: timeSinceInitialDown = " + timeSinceInitialDown + ", downCount = " + downCount );
-					return ResetAndSendAction( eBackButtonAction.SHORT_PRESS );
-                }
-                else if ( downCount == 2 )
-                {
-                    // key went down twice, this is a double-tap
-					// print( "double-tap: timeSinceInitialDown = " + timeSinceInitialDown + ", downCount = " + downCount );
-					return ResetAndSendAction( eBackButtonAction.DOUBLE_TAP );
-                }
-            }
-        }
+		else if ( downCount > 0 )
+		{
+			if ( Input.GetKey( keyCode ) )
+			{
+				if ( downCount <= upCount )
+				{
+					// just went down
+					downCount++;
+				}
+
+				float timeSinceFirstDown = Time.realtimeSinceStartup - initialDownTime;
+				if ( timeSinceFirstDown > longPressDelay )
+				{
+					return ResetAndSendAction( eBackButtonAction.NONE );
+				}
+			}
+			else
+			{
+				bool started = initialDownTime >= 0.0f;
+				if ( started )
+				{
+					if ( upCount < downCount )
+					{
+						// just came up
+						upCount++;
+					}
+
+					float timeSinceFirstDown = Time.realtimeSinceStartup - initialDownTime;
+					if (timeSinceFirstDown < doubleTapDelay)
+					{
+						if (downCount == 2 && upCount == 2)
+						{
+							return ResetAndSendAction(eBackButtonAction.DOUBLE_TAP);
+						}
+					}
+					else if (timeSinceFirstDown > shortPressDelay && timeSinceFirstDown < longPressDelay)
+					{
+						if (downCount == 1 && upCount == 1)
+						{
+							return ResetAndSendAction(eBackButtonAction.SHORT_PRESS);
+						}
+					}
+					else if (timeSinceFirstDown > longPressDelay)
+					{
+						return ResetAndSendAction(eBackButtonAction.NONE);
+					}
+				}
+			}
+		}
 
 		// down reset, but perform no action
 		return eBackButtonAction.NONE;
@@ -148,34 +142,16 @@ public class OVRPlatformMenu : MonoBehaviour
 	/// </summary>
 	void Awake()
 	{
-		if (cameraRig == null)
+		if (shortPressHandler == eHandler.RetreatOneLevel && OnShortPress == null)
+			OnShortPress = RetreatOneLevel;
+		
+		if (!OVRManager.isHmdPresent)
 		{
-			Debug.LogError ("ERROR: missing camera controller object on " + name);
 			enabled = false;
 			return;
 		}
-		if ((cursorTimer != null) && (instantiatedCursorTimer == null)) 
-		{
-			//Debug.Log("Instantiating CursorTimer");
-			instantiatedCursorTimer = Instantiate(cursorTimer) as GameObject;
-			if (instantiatedCursorTimer != null)
-			{
-				cursorTimerMaterial = instantiatedCursorTimer.GetComponent<Renderer>().material;
-				cursorTimerMaterial.SetColor ( "_Color", cursorTimerColor ); 
-				instantiatedCursorTimer.GetComponent<Renderer>().enabled = false;
-			}
-		}
-	}
 
-	/// <summary>
-	/// Destroy the cloned material
-	/// </summary>
-	void OnDestroy()
-	{
-		if (cursorTimerMaterial != null)
-		{
-			Destroy(cursorTimerMaterial);
-		}
+		sceneStack.Push(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
 	}
 
 	/// <summary>
@@ -184,7 +160,7 @@ public class OVRPlatformMenu : MonoBehaviour
 	void OnApplicationFocus( bool focusState )
 	{
 		//Input.ResetInputAxes();
-		//ResetAndSendAction( eBackButtonAction.LONG_PRESS );
+		//ResetAndSendAction( eBackButtonAction.NONE );
 	}
 
 	/// <summary>
@@ -196,7 +172,7 @@ public class OVRPlatformMenu : MonoBehaviour
 		{
 			Input.ResetInputAxes();
 		}
-		//ResetAndSendAction( eBackButtonAction.LONG_PRESS );
+		//ResetAndSendAction( eBackButtonAction.NONE );
 	}
 
 	/// <summary>
@@ -211,14 +187,18 @@ public class OVRPlatformMenu : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Show the platform UI global menu
+	/// Sample handler for short press which retreats to the previous scene that used OVRPlatformMenu.
 	/// </summary>
-	void ShowGlobalMenu()
+	private static bool RetreatOneLevel()
 	{
-#if UNITY_ANDROID && !UNITY_EDITOR
-		Debug.Log("[PlatformUI-Global] Showing @ " + Time.time);
-		OVRManager.PlatformUIGlobalMenu();
-#endif
+		if (sceneStack.Count > 1)
+		{
+			string parentScene = sceneStack.Pop();
+			UnityEngine.SceneManagement.SceneManager.LoadSceneAsync (parentScene);
+			return false;
+		}
+
+		return true;
 	}
 
 	/// <summary>
@@ -229,53 +209,11 @@ public class OVRPlatformMenu : MonoBehaviour
 	{
 #if UNITY_ANDROID
 		eBackButtonAction action = HandleBackButtonState();
-		if ( action == eBackButtonAction.DOUBLE_TAP )
+		if (action == eBackButtonAction.SHORT_PRESS)
 		{
-			ResetCursor();
-		}
-		else if ( action == eBackButtonAction.SHORT_PRESS )
-		{
-			ResetCursor();
-			ShowConfirmQuitMenu();
-		}
-		else if ( action == eBackButtonAction.LONG_PRESS )
-		{
-			ShowGlobalMenu();
+			if (OnShortPress == null || OnShortPress())
+				ShowConfirmQuitMenu();
 		}
 #endif
-	}
-
-	/// <summary>
-	/// Update the cursor based on how long the back button is pressed
-	/// </summary>
-	void UpdateCursor(float timerRotateRatio)
-	{
-		timerRotateRatio = Mathf.Clamp( timerRotateRatio, 0.0f, 1.0f );
-		if (instantiatedCursorTimer != null)
-		{
-			instantiatedCursorTimer.GetComponent<Renderer>().enabled = true;
-
-			// Clamp the rotation ratio to avoid rendering artifacts
-			float rampOffset = Mathf.Clamp(1.0f - timerRotateRatio, 0.0f, 1.0f);
-			cursorTimerMaterial.SetFloat ( "_ColorRampOffset", rampOffset );
-			//print( "alphaAmount = " + alphaAmount );
-
-			// Draw timer at fixed distance in front of camera
-			// cursor positions itself based on camera forward and draws at a fixed depth
-			Vector3 cameraForward = Camera.main.transform.forward;
-			Vector3 cameraPos = Camera.main.transform.position;
-			instantiatedCursorTimer.transform.position = cameraPos + (cameraForward * fixedDepth);
-			instantiatedCursorTimer.transform.forward = cameraForward;
-		}
-	}
-
-	void ResetCursor()
-	{
-		if (instantiatedCursorTimer != null)
-		{
-			cursorTimerMaterial.SetFloat("_ColorRampOffset", 1.0f);
-			instantiatedCursorTimer.GetComponent<Renderer>().enabled = false;
-			//print( "ResetCursor" );
-		}
 	}
 }

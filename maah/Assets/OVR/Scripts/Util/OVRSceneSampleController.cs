@@ -22,6 +22,9 @@ limitations under the License.
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Sample that allows you to play with various VR settings. 
+/// </summary>
 public class OVRSceneSampleController : MonoBehaviour
 {
     /// <summary>
@@ -56,10 +59,6 @@ public class OVRSceneSampleController : MonoBehaviour
     // We want to hold onto GridCube, for potential sharing
     // of the menu RenderTarget
     OVRGridCube gridCube = null;
-
-    // We want to show debug information
-    OVRDebugInfo debugInfo = null;
-
 
 #if	SHOW_DK2_VARIABLES
 	private string strVisionMode = "Vision Enabled: ON";
@@ -114,8 +113,8 @@ public class OVRSceneSampleController : MonoBehaviour
         // Make sure to hide cursor 
         if (Application.isEditor == false)
         {
-            Screen.showCursor = false;
-            Screen.lockCursor = true;
+			Cursor.visible = false; 
+			Cursor.lockState = CursorLockMode.Locked;
         }
 
         // CameraController updates
@@ -124,10 +123,6 @@ public class OVRSceneSampleController : MonoBehaviour
             // Add a GridCube component to this object
             gridCube = gameObject.AddComponent<OVRGridCube>();
             gridCube.SetOVRCameraController(ref cameraController);
-
-            debugInfo = gameObject.AddComponent<OVRDebugInfo>();
-            if(playerController != null)
-                debugInfo.SetPlayerController(ref playerController);
         } 
     }
 
@@ -152,7 +147,11 @@ public class OVRSceneSampleController : MonoBehaviour
             Screen.fullScreen = !Screen.fullScreen;
 
         if (Input.GetKeyDown(KeyCode.M))
-            OVRManager.display.mirrorMode = !OVRManager.display.mirrorMode;
+#if UNITY_2017_2_OR_NEWER
+			UnityEngine.XR.XRSettings.showDeviceView = !UnityEngine.XR.XRSettings.showDeviceView;
+#else
+			UnityEngine.VR.VRSettings.showDeviceView = !UnityEngine.VR.VRSettings.showDeviceView;
+#endif
 
 #if !UNITY_ANDROID || UNITY_EDITOR
         // Escape Application
@@ -206,7 +205,6 @@ public class OVRSceneSampleController : MonoBehaviour
         }
 
         playerController.SetRotationScaleMultiplier(rotationScaleMultiplier);
-        debugInfo.UpdateSpeedAndRotationScaleMultiplier(moveScaleMultiplier, rotationScaleMultiplier);
     }    
       
     /// <summary>

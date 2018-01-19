@@ -21,9 +21,16 @@ limitations under the License.
 
 using UnityEngine;
 
-public class OVRMonoscopic : MonoBehaviour {
-	
-	public OVRGamepadController.Button	toggleButton = OVRGamepadController.Button.B;
+/// <summary>
+/// Allows you to toggle monoscopic rendering with a gamepad button press.
+/// </summary>
+public class OVRMonoscopic : MonoBehaviour
+{
+	/// <summary>
+	/// The gamepad button that will toggle monoscopic rendering.
+	/// </summary>
+	public OVRInput.RawButton	toggleButton = OVRInput.RawButton.B;
+
 	private bool						monoscopic = false;
 
 	/// <summary>
@@ -32,8 +39,8 @@ public class OVRMonoscopic : MonoBehaviour {
 	/// </summary>
 	void Update()
 	{
-		// NOTE: some of the buttons defined in OVRGamepadController.Button are not available on the Android game pad controller
-		if (Input.GetButtonDown(OVRGamepadController.ButtonNames[(int)toggleButton]))
+		// NOTE: some of the buttons defined in OVRInput.RawButton are not available on the Android game pad controller
+		if (OVRInput.GetDown(toggleButton))
 		{
 			//*************************
 			// toggle monoscopic rendering mode
