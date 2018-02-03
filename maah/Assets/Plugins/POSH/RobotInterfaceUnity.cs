@@ -103,11 +103,14 @@ public class RobotInterfaceUnity : POSHBehaviour
         return ergos[behaviour].Challenge(ergos);
     }
 
-    protected override void ConfigureParameters(Dictionary<string, object> parameters) { }
+    protected override void ConfigureParameters(Dictionary<string, object> parameters) {
+        Debug.Log("params");
+    }
 
 
     protected override void ConfigureParameter(string para, object value)
     {
+        Debug.Log(para+value);
         switch (para)
         {
             case "startloc":

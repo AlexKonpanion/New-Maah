@@ -38,7 +38,8 @@ public class SocialBehaviour : KonpanionBehaviour {
 			{
 				if (greeting != null)
 					greeting.Play();
-			});
+                    anim.SetBool(hash.showAffection, true);
+            });
 
 	}
 

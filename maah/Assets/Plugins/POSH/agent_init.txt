@@ -2,7 +2,13 @@
 # agent init file
 ###
 
+[robo2]
+RobotInterfaceUnity.name = Maah1
+RobotInterfaceUnity.startloc = Waypoint
+RobotInterfaceUnity.waypoints = WP-05 WP-04 WP-03 WP-02 WP-01
+
 [robo]
-RobotMovementInner.name = Humf1
-RobotMovementInner.startloc = Waypoint
-RobotMovementInner.waypoints = WP-05 WP-04 WP-03 WP-02 WP-01
+RobotInterfaceUnity.name = Maah2
+RobotInterfaceUnity.startloc = WP-02
+RobotInterfaceUnity.waypoints = WP-05 WP-04 WP-03 WP-02 WP-01
+
