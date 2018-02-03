@@ -2675,8 +2675,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1c8979bd5fea7ed4ba047fe907fcfbdd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.52
-  m_Pitch: 1
+  m_Volume: 0.2
+  m_Pitch: 0.34
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2784,7 +2784,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49087794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.6, y: -3.91, z: 67.38}
+  m_LocalPosition: {x: -56.6, y: -3.38, z: 67.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 239104034}
@@ -68025,7 +68025,7 @@ AudioSource:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1358969069}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6a22a37a2224ca346939e38c9c1f43e2, type: 3}
@@ -88862,7 +88862,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1807263548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.26, y: -3.04, z: -8.156312}
+  m_LocalPosition: {x: 18.26, y: -2.61, z: -8.156312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 846202774}
@@ -89025,8 +89025,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1c8979bd5fea7ed4ba047fe907fcfbdd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.52
-  m_Pitch: 1
+  m_Volume: 0.3
+  m_Pitch: 0.7
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -90263,8 +90263,9 @@ GameObject:
   - component: {fileID: 1822265531}
   - component: {fileID: 1822265530}
   - component: {fileID: 1822265529}
+  - component: {fileID: 1822265534}
   m_Layer: 0
-  m_Name: FPSController
+  m_Name: User
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90503,6 +90504,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1822265534
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822265528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 10.65
+  m_Direction: 1
+  m_Center: {x: 0, y: -1.11, z: 0}
 --- !u!1 &1822656136
 GameObject:
   m_ObjectHideFlags: 0
@@ -94583,7 +94597,7 @@ GameObject:
   - component: {fileID: 1928769379}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
