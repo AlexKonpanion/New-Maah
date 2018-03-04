@@ -19,7 +19,7 @@
 (AP followOwner (seconds 1.0) (
 	follow
 ))
-(SDC NewDriveCollection (goal ((game_finished)))
+(UDC NewDriveCollection (goal ((game_finished)))
 	(drives
 		(
 
