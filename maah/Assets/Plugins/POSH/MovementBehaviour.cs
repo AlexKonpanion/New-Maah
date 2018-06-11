@@ -241,7 +241,7 @@ public class MovementBehaviour : KonpanionBehaviour {
 					nav.destination = core.navDestination;
 				
 				// If near the next waypoint or there is no destination...
-				if (nav.remainingDistance < nav.stoppingDistance)
+				if (nav.remainingDistance < nav.stoppingDistance && !nav.isStopped)
 				{
 					anim.SetFloat(hash.speedFloat, 0.0f, 0.1f, Time.deltaTime);
 					core.navDestination = Vector3.zero;

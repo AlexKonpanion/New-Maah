@@ -54,7 +54,6 @@ public class ChargingBehaviour : KonpanionBehaviour {
 
     internal void Recharging()
 	{
-		Loom.QueueOnMainThread (() => {
 			if (core == null)
 				return;
 
@@ -72,7 +71,6 @@ public class ChargingBehaviour : KonpanionBehaviour {
 				}
 
 			}
-		});
 	}
 
 
