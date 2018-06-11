@@ -74,12 +74,9 @@ public class RobotInterfacePlanner : POSHInnerBehaviour
     [ExecutableAction("idling", 0.01f)]
     public void idling()
     { string[] idle = new string[] { "looks around", "enjoys view", "is observing", "is listening" };
-        Loom.QueueOnMainThread(() =>
-        {
             int i = Random.Range(0, 4);
             AttachToLog(idle[i]);
-        });
-		if (GetRobotControl().movement != null)
+        if (GetRobotControl().movement != null)
 			GetRobotControl().movement.Idling();
     }
 

@@ -23,16 +23,16 @@
 	(drives
 		(
 
-		(charging (trigger ((needCharging))) charge(seconds 0.3)))
+		(charging (trigger ((needCharging))) charge(seconds 0.003)))
 		(
 
 		(follow (trigger ((seeOwner) (ownerMoves) (wantToFollow) )) followOwner))
 		(
 
-		(roaming (trigger ((wantToRoam))) patrol(seconds 0.3)))
+		(roaming (trigger ((wantToRoam))) patrol(seconds 0.003)))
 		(
 
-		(socialize (trigger ((seeOwner))) occationalGreeting(minutes 0.5)))
+		(socialize (trigger ((seeOwner))) occationalGreeting(minutes 0.005)))
 		(
 
 		(idling (trigger ((success))) idle))

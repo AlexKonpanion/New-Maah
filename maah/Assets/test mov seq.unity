@@ -53966,7 +53966,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400042, guid: fa1f530c04a14b7438cb4df61e07b8a2, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089599628}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -53975,7 +53975,7 @@ Transform:
   - {fileID: 1762596113}
   m_Father: {fileID: 1807263550}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1090810855
 GameObject:
   m_ObjectHideFlags: 0
@@ -88080,7 +88080,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b78404f725cdf474693673f6dee4225f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -88092,7 +88092,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1807263548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.26, y: -1.95, z: -8.156312}
+  m_LocalPosition: {x: 18.26, y: -3.59, z: -8.156312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 223789602}
@@ -88123,9 +88123,9 @@ MonoBehaviour:
   - {fileID: 274684784}
   - {fileID: 242023043}
   - {fileID: 480320002}
-  patrolSpeed: 1
-  followSpeed: 2
-  movementSpeed: 1
+  patrolSpeed: 2
+  followSpeed: 3
+  movementSpeed: 2
   nextToCharger: 0
   personalLastSighting: {x: 0, y: 0, z: 0}
   useForPlan: robo
@@ -88232,8 +88232,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 1807263548}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.36
-  m_Speed: 0.2
+  m_Radius: 1.76
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -88241,7 +88241,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.12
+  m_Height: 1.4
   m_BaseOffset: 0.42
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
@@ -88350,7 +88350,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1808707647
 GameObject:

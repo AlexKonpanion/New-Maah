@@ -60,9 +60,7 @@ public class ChargingBehaviour : KonpanionBehaviour {
 			// If near the next waypoint or there is no destination...
 			if (core.navDestination == chargerLocation.position && nav.remainingDistance < nav.stoppingDistance && core.nextToCharger) {
 				//patrolTimer += Time.deltaTime;
-				Loom.RunAsync (() => {
-                    charge = true;
-				});
+				    charge = true;
 			} else {
 				// Set the destination to the charging WayPoint.
 				if (core.navDestination != chargerLocation.position) {
