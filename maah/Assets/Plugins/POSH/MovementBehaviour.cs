@@ -93,8 +93,6 @@ public class MovementBehaviour : KonpanionBehaviour {
 	internal void Patrolling()
 	{
 		// Set an appropriate speed for the NavMeshAgent.
-		Loom.QueueOnMainThread(() =>
-			{
 				if (core == null)
 					return;
 				
@@ -130,14 +128,11 @@ public class MovementBehaviour : KonpanionBehaviour {
 				{
 					patrolTimer = Time.time;
 				}
-			});
+
 	}
 
 	internal void Roaming()
 	{
-		// Set an appropriate speed for the NavMeshAgent.
-		Loom.QueueOnMainThread(() =>
-			{
 				if (core == null)
 					return;
 				
@@ -177,14 +172,13 @@ public class MovementBehaviour : KonpanionBehaviour {
 				{
 					patrolTimer = Time.time;
 				}
-			});
+
 	}
 
 	internal void Following()
 	{
 
-		Loom.QueueOnMainThread(() =>
-			{
+		
 				if (core == null)
 					return;
 
@@ -226,14 +220,12 @@ public class MovementBehaviour : KonpanionBehaviour {
 
 				}
 
-			});
 	}
 
 	private void Move()
 	{
 		// Set an appropriate speed for the NavMeshAgent.
-		Loom.QueueOnMainThread(() =>
-			{	if (core == null) 
+		if (core == null) 
 				return;
 
 				if (core.navDestination == Vector3.zero){
@@ -263,8 +255,6 @@ public class MovementBehaviour : KonpanionBehaviour {
 					}
 					//Debug.Log(anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
 				}
-
-			});
 	}
 
 

@@ -23,8 +23,10 @@ namespace ReAct
         {
             //Loom.QueueOnMainThread(() =>
             //{
-                if (Application.isPlaying)
-                    RunPOSH();
+                if (Application.isPlaying) {
+                Debug.Log("Running: " + RunPOSH());
+            }
+                    
             //});
         }
 

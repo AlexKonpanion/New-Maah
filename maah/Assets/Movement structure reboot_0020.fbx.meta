@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 720e3de4369f0a546a1c7702a9d0d2a6
-timeCreated: 1528709425
+guid: 3619d4dcf04e4c44fabbf15a91a4d349
+timeCreated: 1528712469
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -23,8 +23,7 @@ ModelImporter:
     100030: Joint_3
     100032: //RootNode
     100034: Skeleton
-    100036: Subdivision_Surface
-    100038: Subdivision_Surface_1
+    100036: Subdivision_Surface_1
     400000: control_left
     400002: Control_right
     400004: head_left
@@ -43,10 +42,9 @@ ModelImporter:
     400030: Joint_3
     400032: //RootNode
     400034: Skeleton
-    400036: Subdivision_Surface
-    400038: Subdivision_Surface_1
+    400036: Subdivision_Surface_1
     4300000: Subdivision_Surface_1
-    7400000: Moonwalk
+    7400000: C4D Animation Take
     9500000: //RootNode
     13700000: Subdivision_Surface_1
   materials:
@@ -72,35 +70,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Moonwalk
-      takeName: C4D Animation Take
-      firstFrame: 0
-      lastFrame: 180
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
